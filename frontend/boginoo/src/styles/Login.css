@@ -1,0 +1,54 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+h2 {
+    color: #02B589;
+    cursor: pointer;
+    text-decoration: none;
+}
+header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 50px;
+    height: 60px;
+    margin-right: 150px;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    gap: 60px;
+}
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 340px;
+}
+p {
+    color: gray;
+    font-size: small;
+}
+
+.labelUm {
+    transform: translateX(20px);
+    font-size: small;
+}
+.forgot{
+    display: flex;
+    gap: 120px;
+    margin-top: 20px;
+}
