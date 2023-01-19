@@ -1,22 +1,18 @@
-// import mongoose from "mongoose";
-// import { nanoid } from "nanoid";
-// const UserSchema = new mongoose.Schema({
-//     id:{
-//         type:Number
-//     },
-//     url:{
-//         type:String,
+import mongoose from "mongoose";
 
-//     },
+const UserSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
 
-//     shortId:String
-// });
+const User = mongoose.model("User", UserSchema);
 
-// UserSchema.pre("save" , function(next) {
-//     this.shortId = nanoid(5),
-//     next()
-// })
-
-// const  User = mongoose.model("User", UserSchema);
-
-// export default User;
+export default User;
