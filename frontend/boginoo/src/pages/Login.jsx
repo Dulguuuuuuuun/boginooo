@@ -22,6 +22,7 @@ function Login() {
       });
       console.log(res);
       window.location.replace(`/user/${res.data.data._id}`);
+      console.log(res)
       window.localStorage.setItem("token", JSON.stringify(res.data.token));
       toast.success("amjilttai nevterle");
     } catch (error) {
@@ -38,7 +39,7 @@ function Login() {
       </header>
       <main>
         <img src={require("../assets/boginooLogo.png")} alt="" />
-        <h1 style={{ color: "#02B589" }}>Нэвтрэх</h1>
+        <h1 style={{ color: "#02B589" }}></h1>
         <div className="inputBox">
           <div>
             <label className="labelUm">Цахим хаяг</label>

@@ -2,21 +2,26 @@ import mongoose from "mongoose";
 import { nanoid } from "nanoid";
 
 
-const UserSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-  },
+const LinkSchema = new mongoose.Schema({
   url: {
     type: String,
   },
 
-  shortId: String,
+  shortId: {
+    type:String
+  },
+  user_id:{
+    type:String,
+    required : true,
+    ref:"User"
+  },
+  
 });
 
-UserSchema.pre("save", function (next) {
+LinkSchema.pre("save", function (next) {
   (this.shortId = nanoid(5)), next();
 });
 
-const Link = mongoose.model("Link", UserSchema);
+const Link = mongoose.model("Link", LinkSchema);
 
 export default Link;

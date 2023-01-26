@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div>
       <footer>
-        <span>Made with ♥️ by Nest Academy</span>
+        <span>Made with ♥️ by PineCone Academy</span>
         <p>©boginoo.io 2020</p>
       </footer>
     </div>

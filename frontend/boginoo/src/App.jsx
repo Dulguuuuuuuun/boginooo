@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Forgot from './pages/Forgot';
 import SignUp from './pages/SignUp';
 import Logged from './pages/Logged';
+import History from './pages/History';
 
 export const instance = axios.create({
   baseURL: "http://localhost:6969/",
@@ -29,6 +30,7 @@ function App() {
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/user/:_id" element={<Logged />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </BrowserRouter>
     </div>

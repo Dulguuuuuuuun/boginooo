@@ -20,7 +20,8 @@ function SignUp() {
       });
       toast.success("amjilttai")
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error);
+      console.log(error)
     }
   };
   return (
@@ -69,7 +70,12 @@ function SignUp() {
               />
             </InputGroup>
           </div>
-          <Button onClick={createUser} variant="success">Бүртгүүлэх </Button>{" "}
+          <Button onClick={createUser} variant="success">
+            Бүртгүүлэх{" "}
+          </Button>{" "}
+          <Link to={"/login"}>
+            <Button variant="success">Нэвтрэх </Button>{" "}
+          </Link>
         </div>
       </main>
       <footer>

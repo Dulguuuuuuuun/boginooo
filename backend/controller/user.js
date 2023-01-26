@@ -1,11 +1,12 @@
 import User from "../model/User.js";
+import Link from "../model/Link.js";
 import jwt from "jsonwebtoken";
 
 export const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
     console.log(req.body);
-    res.status( ).send({
+    res.status(200).send({
       success: true,
       data: user,
     });
@@ -32,13 +33,15 @@ export const login = async (req, res) => {
     const { password, email } = req.body;
     const user = await User.findOne({ email });
     console.log(user)
+    const isMatch = await user.comparePassword(password);
+    console.log(isMatch);
+    if(!isMatch){
+      res.send("Password buruu")
+    }
     if (user) {
-      if (user.password !== password) {
-        throw new Error("Nuuts ug buruu bn");
-      }
       res.status(200).send({
         data: user,
-        token: token,
+        token : token
       });
     } else {
       res.send({
@@ -51,6 +54,7 @@ export const login = async (req, res) => {
     });
   }
 };
+
 export const getUserByid = async (req, res) => {
   try {
     const id = req.params.id;
@@ -66,7 +70,8 @@ export const getUserByid = async (req, res) => {
 };
 export const getAllUser = async (req, res) => {
   try {
-    const AllUser = await User.find({});
+
+    const AllUser = await User.find({}).populate("links");
     res.status(200).send({
       data: AllUser,
     });

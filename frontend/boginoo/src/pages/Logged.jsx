@@ -6,20 +6,22 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
-import { useParams , Link } from "react-router-dom";
+import { useParams , Link  } from "react-router-dom";
 
 function Logged() {
   const [longLink, setLongLink] = useState();
   const [shortLink, setShortLink] = useState();
   const [name, setName] = useState();
+    const params = useParams();
   const getData = async () => {
     const res = await instance.post("/link", {
       url: longLink,
+      user_id : params._id
     });
     setShortLink(res.data.data.shortId);
     console.log(res);
   };
-  const params = useParams();
+
   const getUser = async () => {
     const res = await instance.get(`/user/${params._id}`);
     setName(res.data.data.email);
